@@ -10,3 +10,4 @@ PyYAML
 google-generativeai
 langchain-groq
 gunicorn
+whitenoise
