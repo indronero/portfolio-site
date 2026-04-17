@@ -1,0 +1,79 @@
+cv:
+  name: Indroneel Das
+  location: Mumbai, India
+  email: indroneelsdas@gmail.com
+  phone: (+91) 97699 44023
+  social_networks:
+    - network: LinkedIn
+      username: indroneel-das
+    - network: GitHub
+      username: indronero
+    - network: Kaggle
+      username: indronel
+  sections:
+    PROFESSIONAL SUMMARY:
+      - Software Engineer specializing in AI/ML, NLP, and full-stack development. Spearheading the Python AI Delivery Team at Clover Infotech, deploying services like an NLP document analyzer and RAG-based chatbot (58% faster reviews). Leveraging Python, MySQL, Django, React, Azure, and PyTorch to automate workflows, boost revenue (Rs.500k+), and drive operational efficiency through custom AI solutions.
+    WORK EXPERIENCE:
+      - company: Clover Infotech Ltd.
+        position: Software Engineer
+        location: Mumbai, India
+        start_date: 2024
+        end_date: present
+        highlights:
+          - Founding Member of the Python AI Delivery Team, building end-to-end software solutions that improved operational efficiency and generated Rs.500,000+ in new revenue.
+          - Designed and deployed an NLP-based document analyzer using Azure Vision OCR and custom Named Entity Recognition (NER) models to automate the analysis and filing of 500+ monthly bank statements across multiple formats, reducing manual workload by 90% and saving over 700 labor hours per month for the finance department.
+          - Designed an Agreement Management Portal using Django and MySQL to streamline 1000+ internal and external client agreement workflows, reducing approval times from 2–4 weeks to 5 business days.
+          - Integrated Microsoft SharePoint and OneDrive via Azure Graph API to centralize document management and access control within the Agreement Portal.
+          - Integrated a RAG-based chatbot with inference and reasoning powered by the DeepSeek-R1 LLM running locally, enabling intelligent document understanding and reducing document review time by 58%.
+          - Engineered a decoupled REST API to handle backend logic for a Dockerized chatbot, utilizing ngrok for reverse proxying; increased system concurrency by 20x and optimized performance for resource-constrained environments.
+          - Implemented AI-driven version control, validation, and semantic comparator using DeBERTa and MiniLM models, achieving a 40% improvement in document quality and a 70% reduction in versioning errors.
+          - Built a Captchas decoding CRNN LSTM model trained on 5000 samples, achieving 80% accuracy, and a Transformers-based finetuned (FP16) model trained on 15000 samples, achieving an accuracy of 92%. This was used for UiPath automation, enabling 10+ processes to run without human intervention. These models are published on Kaggle.
+      - company: Commercial Services Group Ltd.
+        position: Digital Transformation Intern
+        location: Kent, UK
+        start_date: 2023-07
+        end_date: 2023-10
+        highlights:
+          - Assisted in implementing new IT ideas such as a chatbot and CRM, improving internal response time, and enhancing user engagement for 300+ users.
+          - Collaborated closely with the procurement team to align IT initiatives with the overall brand strategy, leading to the identification of cost-effective tools that would reduce procurement processing time by 10%.
+          - Conducted comprehensive research on emerging technologies and documented existing systems across departments, contributing to a 15% reduction in manual data entry tasks through system automation insights.
+      - company: The Sparks Foundation
+        position: Web Developer
+        location: Mumbai, India
+        start_date: 2021-01
+        end_date: 2021-03
+        highlights:
+          - Implemented a Basic Banking website capable of recording and handling 100+ user balances and simulated transactions during testing and deployed on a live server with 99% uptime.
+          - Integrated a Payment Gateway for a donation website, utilizing 3rd party APIs, processing 50+ simulated donations.
+    TECHNICAL AND OTHER SKILLS:
+      - label: Programming & Scripting Languages
+        details: Python, JavaScript, PHP, HTML/CSS, MySQL, Java.
+      - label: Frameworks, Tools & AI Technologies
+        details: Django, Fast API, Flask, React, Docker, REST APIs, Azure AI Foundry, Hugging Face, Git, PyTorch, TensorFlow, LangChain.
+      - label: Design, UX & Editing Software
+        details: Figma, Adobe Creative Suite, GIMP, Blender, MS Office.
+      - label: Certifications
+        details: NPTEL Programming in C and Programming in Java, Coursera specialization in Scripting in Python.
+      - label: Languages
+        details: English (IELTS - 7.5 band), Hindi, German (Goethe A1).
+    EDUCATION:
+      - institution: University of Kent
+        area: Computer Science with a Distinction
+        degree: Msc.
+        location: Canterbury, UK
+        end_date: 2023-11
+        highlights:
+          - Key Modules- Object Oriented Programming, Systems Architecture, DSA, HCI, Cyber Security, and Information Systems.
+          - Final Dissertation- Sudoku Solving Environment in React.
+      - institution: Thakur College of Engineering & Technology - University of Mumbai
+        area: Electronics Engineering  with an 8.7 CGPA (out of 10)
+        degree: B.E
+        location: Mumbai, India
+        end_date: 2022-07
+        highlights:
+          - Key Modules- Microprocessors & Computer Organization, DB Management, Digital Circuit Design, Embedded Systems.
+          - Event Manager of the Electronics Core Committee IETE (Institution of Electronics and Telecommunication Engineers).
+          - Final Year Group Project- Web & Android Application for Restaurant Management System.
+
+design:
+  theme: classic
