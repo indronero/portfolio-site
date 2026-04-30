@@ -24,3 +24,8 @@ rag/faiss_index/
 # =========================
 .DS_Store
 Thumbs.db
+
+# =========================
+# DJANGO STATIC FILES
+# =========================
+staticfiles/
