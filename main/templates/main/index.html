@@ -18,8 +18,8 @@
 <title>Indroneel Das | AI Engineer</title>
 
 <!-- Favicon / Logo in browser tab -->
-<link rel="icon" type="image/png" href="{% static 'main/images/logo2.png' %}">
-<link rel="apple-touch-icon" href="{% static 'main/images/logo2.png' %}">
+<link rel="icon" type="image/png" href="{% static 'main/images/logo2_1.png' %}">
+<link rel="apple-touch-icon" href="{% static 'main/images/logo2_1.png' %}">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -27,16 +27,15 @@
 <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
 </head>
 
-<body class="bg-gray-950 text-white">
+<body class="bg-neutral-900 text-white">
 
 <!-- NAVBAR -->
-<nav class="fixed top-0 w-full bg-gray-950 bg-opacity-90 backdrop-blur z-50 border-b border-gray-800">
+<nav class="fixed top-0 w-full bg-gray-800 bg-opacity-90 backdrop-blur z-50 border-b border-gray-800">
     <div class="max-w-[1440px] mx-auto flex justify-between items-center p-4">
 
         <!-- LOGO -->
-        <a href="#" onclick="showTab('home')" class="flex items-center gap-2 hover:opacity-80 transition">
+        <a onclick="showTab('home')" class="flex items-center gap-2 hover:opacity-80 cursor-pointer transition">
             <img src="{% static 'main/images/logo2.png' %}" class="w-10 h-10 sm:w-12 sm:h-12 object-contain">
-            <br>
             <span class="font-bold text-sm sm:text-lg">Indroneel's Portfolio</span>
         </a>
 
@@ -48,7 +47,6 @@
                 <button class="nav-btn" onclick="showTab('experience')">Experience</button>
                 <button class="nav-btn" onclick="showTab('skills')">Skills</button>
                 <button class="nav-btn" onclick="showTab('education')">Education</button>
-                <button class="nav-btn" onclick="showTab('ai')">AI Demo</button>
                 
                 <!-- DOWNLOAD CV BUTTON -->
                 <a href="{% static 'main/cv/Indroneel Das CV  .pdf' %}" 
@@ -69,13 +67,12 @@
     </div>
 
     <!-- MOBILE MENU -->
-    <div id="mobileMenu" class="hidden sm:hidden flex flex-col gap-2 px-4 pb-4 bg-gray-950 border-t border-gray-800">
-        <a href="/" data-tab="home" class="nav-btn">Home</a>
-        <a href="/projects/" data-tab="projects" class="nav-btn">Projects</a>
-        <a href="/experience/" data-tab="experience" class="nav-btn">Experience</a>
-        <a href="/skills/" data-tab="skills" class="nav-btn">Skills</a>
-        <a href="/education/" data-tab="education" class="nav-btn">Education</a>
-        <a href="/ai/" data-tab="ai" class="nav-btn">AI Demo</a>
+    <div id="mobileMenu" class="hidden sm:hidden flex flex-col gap-2 px-4 pb-4 bg-gray-800 border-t border-gray-800">
+        <button onclick="showTab('home')" class="nav-btn text-left py-2">Home</button>
+        <button onclick="showTab('projects')" class="nav-btn text-left py-2">Projects</button>
+        <button onclick="showTab('experience')" class="nav-btn text-left py-2">Experience</button>
+        <button onclick="showTab('skills')" class="nav-btn text-left py-2">Skills</button>
+        <button onclick="showTab('education')" class="nav-btn text-left py-2">Education</button>
         
         <!-- Mobile Download CV -->
         <a href="{% static 'main/cv/Indroneel Das CV  .pdf' %}" 
@@ -90,58 +87,114 @@
 <div class="pt-20">
 
 <!-- HERO -->
-<section id="home" class="tab-section min-h-screen flex flex-col justify-center items-center text-center px-6 fade-in">
+<section id="home" class="tab-section min-h-screen flex items-center px-6 fade-in">
 
-    <img src="{% static 'main/images/logo.png' %}" class="w-32 h-32 rounded-full mb-6 border-4 border-gray-800 shadow-lg">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-    <h1 class="text-3xl sm:text-5xl font-bold mb-4">Indroneel Das</h1>
-    <p class="text-base sm:text-xl text-gray-400 mb-6">AI Engineer • NLP • MLOps</p>
+        <!-- LEFT: HERO -->
+        <div class="text-center lg:text-left">
 
-    <!-- SUMMARY (NEW) -->
-    <p class="max-w-3xl text-gray-300 mb-6">
-        Software Engineer specializing in AI/ML, NLP, and full-stack development. Spearheading the Python AI Delivery Team at Clover Infotech, deploying NLP document analyzers and RAG-based chatbots that reduced review time by 58% and generated ₹500k+ revenue.
-    </p>
+            <img src="{% static 'main/images/logo.png' %}" 
+                 class="w-28 h-28 sm:w-32 sm:h-32 rounded-full mb-6 border-4 border-gray-800 shadow-lg mx-auto lg:mx-0">
 
-    <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-        <a href="https://www.linkedin.com/in/indroneel-das-32686a1aa" target="_blank" class="bg-[#0A66C2] px-4 py-2 rounded-lg">LinkedIn</a>
-        <a href="https://github.com/indronero" target="_blank" class="bg-white text-black px-4 py-2 rounded-lg">GitHub</a>
-        <a href="https://www.kaggle.com/indronel" target="_blank" class="bg-[#20BEFF] px-4 py-2 rounded-lg">Kaggle</a>
+            <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Indroneel Das</h1>
+            <p class="text-base sm:text-xl text-gray-400 mb-6">AI Engineer • NLP • MLOps</p>
 
-        <!-- CV Download Button in Hero -->
-        <a href="{% static 'main/cv/Indroneel Das CV  .pdf' %}" 
-            target="_blank"
-            class="bg-emerald-600 hover:bg-emerald-700 px-6 py-2 rounded-lg font-medium flex items-center gap-2">
-            <span class="text-xl">📄</span> Download CV
-        </a>
+            <p class="max-w-xl text-gray-300 mb-6 mx-auto lg:mx-0">
+                Software Engineer specializing in AI/ML, NLP, and full-stack development. Spearheading the Python AI Delivery Team at Clover Infotech, deploying NLP document analyzers and RAG-based chatbots that reduced review time by 58% and generated ₹500k+ revenue.
+            </p>
+
+            <div class="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
+                <a href="https://www.linkedin.com/in/indroneel-das-32686a1aa" target="_blank" class="bg-[#0A66C2] hover:bg-[#174471] px-4 py-2 rounded-lg">LinkedIn</a>
+                <a href="https://github.com/indronero" target="_blank" class="bg-white hover:bg-[#b4b2b2] text-black px-4 py-2 rounded-lg">GitHub</a>
+                <a href="https://www.kaggle.com/indronel" target="_blank" class="bg-[#20BEFF] hover:bg-[#1d6f91] px-4 py-2 rounded-lg">Kaggle</a>
+
+                <a href="{% static 'main/cv/Indroneel Das CV  .pdf' %}" 
+                   target="_blank"
+                   class="bg-emerald-600 hover:bg-emerald-700 px-6 py-2 rounded-lg font-medium flex items-center gap-2">
+                   <span class="text-xl">📄</span> Download CV
+                </a>
+            </div>
+        </div>
+
+        <!-- RIGHT: CHAT -->
+        <div>
+
+            
+
+            <div class="chat-container bg-gray-800 rounded-xl shadow-[0_5px_30px_rgba(0,0,0,0.6)] h-[85vh] lg:h-[75vh]">
+                <div class="flex  bg-gray-700 rounded-t-xl items-center gap-2 px-4 py-2 border-b border-neutral-900">
+                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="ml-2 text-base text-gray-400">AI Assistant</span>
+                </div>
+
+                <div id="chatBox" class="space-y-4 text-left">
+                    <div id="emptyState" class="text-center text-gray-400 mt-20">
+                        <p class="text-lg">Ask me anything about my experience 👇</p>
+                    </div>
+                </div>
+
+                <div class="chat-input bg-gray-700 rounded-b-xl flex flex-col sm:flex-row gap-2 mt-2">
+
+                    <input 
+                        id="userInput" 
+                        placeholder="Ask about me..." 
+                        class="w-full sm:flex-1 p-3 rounded-lg text-black text-sm sm:text-base"
+                    >
+
+                    <div class="flex gap-2 w-full sm:w-auto">
+                        <button 
+                            id="sendBtn"
+                            onclick="sendMessage()" 
+                            class="flex-1 sm:flex-none bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm sm:text-base"
+                        >
+                            Send
+                        </button>
+
+                        <button 
+                            id="clearBtn"
+                            onclick="clearChat()" 
+                            class="flex-1 sm:flex-none bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            Clear
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
     </div>
-
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="tab-section hidden px-4 sm:px-8 py-16 sm:py-20 max-w-6xl mx-auto fade-in">
-<h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
+<section id="projects" class="tab-section px-4 sm:px-8 py-16 sm:py-20 max-w-6xl mx-auto fade-in">
+<h2 class="text-3xl font-bold mb-10 text-center">Projects <span class="block w-16 h-1 bg-emerald-500 mx-auto mt-3 rounded"></span></h2>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
 
-<div class="bg-gray-900 p-6 rounded-xl">
+<div class="bg-gray-800 hover:scale-[1.02] hover:shadow-xl p-6 rounded-xl">
 <h3 class="text-xl font-semibold">RAG Chatbot</h3>
 <p class="text-gray-400">LangChain • DeepSeek-R1</p>
 <p class="mt-2">Reduced document review time by <span class="text-green-400">58%</span></p>
 </div>
 
-<div class="bg-gray-900 p-6 rounded-xl">
+<div class="bg-gray-800 hover:scale-[1.02] hover:shadow-xl p-6 rounded-xl">
 <h3 class="text-xl font-semibold">OCR + NER Analyzer</h3>
 <p class="text-gray-400">Azure Vision • NLP</p>
 <p class="mt-2">Saved <span class="text-green-400">700+ hrs/month</span></p>
 </div>
 
-<div class="bg-gray-900 p-6 rounded-xl">
+<div class="bg-gray-800 hover:scale-[1.02] hover:shadow-xl p-6 rounded-xl">
 <h3 class="text-xl font-semibold">CAPTCHA Solver</h3>
 <p class="text-gray-400">CRNN • Transformers</p>
 <p class="mt-2"><span class="text-green-400">90% accuracy</span> • Kaggle published</p>
 </div>
 
-<div class="bg-gray-900 p-6 rounded-xl">
+<div class="bg-gray-800 hover:scale-[1.02] hover:shadow-xl p-6 rounded-xl">
 <h3 class="text-xl font-semibold">Agreement Portal</h3>
 <p class="text-gray-400">Django • MySQL</p>
 <p class="mt-2"><span class="text-green-400">1000+</span> workflows automated</p>
@@ -151,10 +204,10 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="tab-section hidden px-4 sm:px-8 py-16 sm:py-20 bg-gray-900 fade-in">
+<section id="experience" class="tab-section px-4 sm:px-8 py-16 sm:py-20 bg-neutral-900 fade-in">
     <div class="max-w-5xl mx-auto">
 
-        <h2 class="text-3xl font-bold text-center mb-16">Experience</h2>
+        <h2 class="text-3xl font-bold text-center mb-16">Experience <span class="block w-16 h-1 bg-emerald-500 mx-auto mt-3 rounded"></span></h2>
         
         <div class="relative border-l border-gray-700 space-y-12">
         
@@ -162,7 +215,7 @@
         <div class="ml-4 sm:ml-6">
         <div class="absolute w-3 h-3 bg-white rounded-full -left-1.5 mt-2"></div>
         
-        <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-xl transition">
+        <div class="bg-gray-800 p-6 rounded-xl shadow hover:scale-[1.02] hover:shadow-xl transition">
         <h3 class="text-xl font-semibold">Software Engineer — Clover Infotech</h3>
         <p class="text-gray-400 text-sm mb-4">2024 – Present • Mumbai</p>
         
@@ -187,7 +240,7 @@
         <div class="ml-4 sm:ml-6">
         <div class="absolute w-3 h-3 bg-white rounded-full -left-1.5 mt-2"></div>
         
-        <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-xl transition">
+        <div class="bg-gray-800 p-6 rounded-xl shadow hover:scale-[1.02] hover:shadow-xl transition">
         <h3 class="text-xl font-semibold">Digital Transformation Intern</h3>
         <p class="text-gray-400 text-sm mb-4">2023 • UK</p>
         
@@ -219,39 +272,39 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="tab-section hidden px-4 sm:px-8 py-16 sm:py-20 text-center fade-in">
+<section id="skills" class="tab-section px-4 sm:px-8 py-16 sm:py-20 text-center fade-in">
     <div class="max-w-6xl mx-auto">
 
-        <h2 class="text-3xl font-bold mb-12 text-center">Skills</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center">Skills <span class="block w-16 h-1 bg-emerald-500 mx-auto mt-3 rounded"></span></h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         
-        <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition">
+        <div class="bg-gray-800 p-6 rounded-xl hover:scale-[1.02] hover:shadow-xl transition">
         <h3 class="font-semibold mb-3">💻 Programming</h3>
         <p class="text-gray-400 text-sm">Python, JavaScript, Java, PHP, MySQL</p>
         </div>
         
-        <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition">
+        <div class="bg-gray-800 p-6 rounded-xl hover:scale-[1.02] hover:shadow-xl transition">
         <h3 class="font-semibold mb-3">⚙️ Frameworks</h3>
         <p class="text-gray-400 text-sm">Django, FastAPI, Flask, React</p>
         </div>
         
-        <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition">
+        <div class="bg-gray-800 p-6 rounded-xl hover:scale-[1.02] hover:shadow-xl transition">
         <h3 class="font-semibold mb-3">🤖 AI/ML</h3>
         <p class="text-gray-400 text-sm">PyTorch, TensorFlow, HuggingFace, LangChain</p>
         </div>
         
-        <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition">
+        <div class="bg-gray-800 p-6 rounded-xl hover:scale-[1.02] hover:shadow-xl transition">
         <h3 class="font-semibold mb-3">☁️ Tools</h3>
         <p class="text-gray-400 text-sm">Docker, Azure AI, REST APIs, Git</p>
         </div>
         
-        <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition">
+        <div class="bg-gray-800 p-6 rounded-xl hover:scale-[1.02] hover:shadow-xl transition">
         <h3 class="font-semibold mb-3">🎨 Design</h3>
         <p class="text-gray-400 text-sm">Figma, Adobe Suite, Blender, GIMP</p>
         </div>
         
-        <div class="bg-gray-900 p-6 rounded-xl hover:scale-105 transition">
+        <div class="bg-gray-800 p-6 rounded-xl hover:scale-[1.02] hover:shadow-xl transition">
         <h3 class="font-semibold mb-3">🌍 Languages</h3>
         <p class="text-gray-400 text-sm">English, Hindi, German</p>
         </div>
@@ -261,10 +314,10 @@
 </section>
 
 <!-- EDUCATION (TIMELINE STYLE) -->
-<section id="education" class="tab-section hidden px-4 sm:px-8 py-16 sm:py-20 bg-gray-900 fade-in">
+<section id="education" class="tab-section px-4 sm:px-8 py-16 sm:py-20 bg-neutral-900 fade-in">
     <div class="max-w-5xl mx-auto">
 
-        <h2 class="text-3xl font-bold text-center mb-16">Education</h2>
+        <h2 class="text-3xl font-bold text-center mb-16">Education <span class="block w-16 h-1 bg-emerald-500 mx-auto mt-3 rounded"></span></h2>
 
         <div class="relative border-l border-gray-700 space-y-12">
 
@@ -319,50 +372,21 @@
     </div>
 </section>
 
-<!-- AI DEMO -->
-<section id="ai" class="tab-section hidden px-4 sm:px-8 py-16 sm:py-20 bg-gray-900 text-center fade-in">
-<h2 class="text-3xl font-bold mb-6">AI Chat</h2>
-
-<div class="max-w-4xl mx-auto chat-container bg-gray-800 rounded-xl shadow-lg h-[75vh] sm:h-[80vh]">
-    
-<div id="chatBox" class="space-y-4 text-left">
-<div id="emptyState" class="text-center text-gray-400 mt-20">
-<p class="text-lg">Ask me anything about my experience 👇</p>
-</div>
 </div>
 
-<div class="chat-input flex flex-col sm:flex-row gap-2 mt-2">
+<footer class="bg-neutral-900 border-t border-gray-800 py-6 mt-10">
+  <div class="max-w-6xl mx-auto px-4 text-center text-gray-400 text-sm">
 
-    <input 
-        id="userInput" 
-        placeholder="Ask about me..." 
-        class="w-full sm:flex-1 p-3 rounded-lg text-black text-sm sm:text-base"
-    >
+    <p>© 2026 Indroneel Das</p>
 
-    <div class="flex gap-2 w-full sm:w-auto">
-        <button 
-            id="sendBtn"
-            onclick="sendMessage()" 
-            class="flex-1 sm:flex-none bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm sm:text-base"
-        >
-            Send
-        </button>
-
-        <button 
-            id="clearBtn"
-            onclick="clearChat()" 
-            class="flex-1 sm:flex-none bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-            Clear
-        </button>
+    <div class="flex justify-center gap-4 mt-3">
+      <a href="https://github.com/indronero" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/..." target="_blank">LinkedIn</a>
+      <a href="mailto:youremail@gmail.com">Email</a>
     </div>
 
-</div>
-
-</div>
-</section>
-
-</div>
+  </div>
+</footer>
 
 <script src="{% static 'main/js/script.js' %}"></script>
 <script>

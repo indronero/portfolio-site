@@ -1,18 +1,31 @@
-// TAB SYSTEM
+// TAB SYSTEM - Updated for Single Page Scrolling
 function showTab(tabId) {
-    document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('hidden'));
-    document.getElementById(tabId).classList.remove('hidden');
+    const targetElement = document.getElementById(tabId);
+    if (targetElement) {
+        // Smooth scroll to section
+        const navHeight = 80; // Adjust based on your navbar height
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
 
+    // Update active button state
     document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-
     const activeBtn = document.querySelector(`.nav-btn[onclick="showTab('${tabId}')"]`);
     if (activeBtn) activeBtn.classList.add('active');
 
+    // Close mobile menu
     const menu = document.getElementById("mobileMenu");
     if (menu && !menu.classList.contains("hidden")) {
         menu.classList.add("hidden");
     }
 
+    // Update URL without reloading page
+    const newPath = tabId === 'home' ? '/' : `/${tabId}/`;
+    history.pushState(null, "", newPath);
     localStorage.setItem("activeTab", tabId);
 }
 
@@ -24,15 +37,19 @@ let isSending = false;
 // Run after DOM loads
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Initial Scroll if page is loaded via /projects/ etc.
     const savedTab = window.INITIAL_TAB || localStorage.getItem("activeTab") || "home";
-    showTab(savedTab);
+    if (savedTab !== "home") {
+        setTimeout(() => showTab(savedTab), 100);
+    }
 
     // ANIMATION
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-    });
+    }, { threshold: 0.1 });
+    
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
     // Load chat history from server
@@ -41,26 +58,28 @@ document.addEventListener("DOMContentLoaded", () => {
     updateClearButtonState(false);
     
     const inputEl = document.getElementById("userInput");
+    if(inputEl) {
+        // ENTER KEY
+        inputEl.addEventListener("keydown", e => {
+            if (e.key === "Enter") {
+                if (e.shiftKey) return;
+                e.preventDefault();
+                if (!isSending) sendMessage();
+            }
+        });
 
-    // ENTER KEY
-    inputEl.addEventListener("keydown", e => {
-        if (e.key === "Enter") {
-            if (e.shiftKey) return;
-            e.preventDefault();
-            if (!isSending) sendMessage();
-        }
-    });
-
-    // Prevent typing while sending
-    inputEl.addEventListener("input", () => {
-        if (isSending) inputEl.value = "";
-    });
+        // Prevent typing while sending
+        inputEl.addEventListener("input", () => {
+            if (isSending) inputEl.value = "";
+        });
+    }
 });
 
 
 // Load history from Django session
 async function loadChatHistory() {
     const chatBox = document.getElementById("chatBox");
+    if(!chatBox) return;
     
     try {
         const res = await fetch("/chat/history/", {
@@ -95,7 +114,6 @@ function updateClearButtonState(history = null) {
     if (!clearBtn) return;
 
     if (history === null) {
-        // exclude emptyState
         const messages = document.querySelectorAll("#chatBox > div:not(#emptyState)");
         history = messages.length > 0;
     }
@@ -112,6 +130,7 @@ function formatText(text) {
 // Render message
 function renderMessage(text, type) {
     const chatBox = document.getElementById("chatBox");
+    if(!chatBox) return;
     document.getElementById("emptyState")?.remove();
 
     const div = document.createElement("div");
@@ -137,7 +156,8 @@ function typeMessage(text, container) {
             if (i <= text.length) {
                 container.innerHTML = marked.parse(text.slice(0, i));
                 i++;
-                document.getElementById("chatBox").scrollTop = 999999;
+                const chatBox = document.getElementById("chatBox");
+                if(chatBox) chatBox.scrollTop = 999999;
                 setTimeout(type, 5);
             } else {
                 resolve();
@@ -157,6 +177,7 @@ async function sendMessage() {
     const sendBtn = document.getElementById("sendBtn");
     const clearBtn = document.getElementById("clearBtn");
 
+    if(!inputEl) return;
     const input = inputEl.value.trim();
     if (!input) return;
 
@@ -194,16 +215,11 @@ async function sendMessage() {
 
         await typeMessage(data.response, bubble);
 
-        // Refresh history from server
-        // disabled for error messages to show in chat
-        // await loadChatHistory();
-
         isSending = false;
         inputEl.disabled = false;
         if (sendBtn) sendBtn.disabled = false;
 
         updateClearButtonState();
-
         inputEl.focus();
 
     } catch (err) {
@@ -268,19 +284,14 @@ document.addEventListener("click", (e) => {
     }
 });
 
-
-// ROUTING
-document.querySelectorAll("a.nav-btn").forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const tab = link.dataset.tab;
-        const url = link.getAttribute("href");
-        history.pushState(null, "", url);
-        showTab(tab);
-    });
-});
-
+// POPSTATE for back button support
 window.addEventListener("popstate", () => {
-    const path = window.location.pathname.replace("/", "").replace("/", "");
-    showTab(path || "home");
+    const path = window.location.pathname.replace(/\//g, "");
+    const tab = path || "home";
+    const targetElement = document.getElementById(tab);
+    if(targetElement){
+        const navHeight = 80;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
 });
