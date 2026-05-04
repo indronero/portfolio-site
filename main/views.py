@@ -22,7 +22,6 @@ def home(request):
         "experience": "experience",
         "skills": "skills",
         "education": "education",
-        "ai": "ai",
     }
 
     active_tab = tab_map.get(path, "home")

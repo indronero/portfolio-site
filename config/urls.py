@@ -27,7 +27,6 @@ urlpatterns = [
     path('experience/', home),
     path('skills/', home),
     path('education/', home),
-    path('ai/', home),
 
     path('chat/', chat),
     path('chat/history/', chat_history),
