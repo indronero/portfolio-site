@@ -122,3 +122,25 @@ body {
     color: #93c5fd !important;
     text-decoration: underline;
 }
+
+
+nav {
+    transition: top 0.4s ease-in-out !important; 
+}
+
+.nav-hidden {
+    top: -100px !important; 
+}
+
+/* Mobile & Tablet (Portrait) */
+@media (max-width: 1024px) {
+    .chat-container {
+        height: 500px !important; /* Force a reasonable height */
+        min-height: 400px !important;
+    }
+    
+    /* Ensure the internal chat box also scales */
+    #chatBox {
+        height: calc(500px - 120px) !important;
+    }
+}

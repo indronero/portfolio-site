@@ -295,3 +295,18 @@ window.addEventListener("popstate", () => {
         window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     }
 });
+
+
+let lastScrollTop = 0;
+const navbar = document.querySelector('nav');
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        navbar.style.top = "-100px"; // Hide
+    } else {
+        navbar.style.top = "0"; // Show
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, { passive: true });
