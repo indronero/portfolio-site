@@ -15,10 +15,9 @@ def get_chain():
 
     index_path = "rag/faiss_index"
 
-    # AUTO-BUILD INDEX IF MISSING
+    # If Index is missing
     if not os.path.exists(index_path):
-        print("FAISS index not found. Building...")
-        build_index()
+        raise FileNotFoundError(f"Production Error: FAISS index not found at {index_path}. Run ingest.py locally and commit the index folder.")
 
     embeddings = GoogleGenerativeAIEmbeddings(
         model="models/gemini-embedding-001"
